@@ -1,0 +1,25 @@
+{
+  "sigoApp": {
+    "materiaPrima": {
+      "home": {
+        "title": "Materia Primas",
+        "createLabel": "Crear nuevo Materia Prima",
+        "createOrEditLabel": "Crear o editar Materia Prima",
+        "notFound": "Ningún Materia Primas encontrado"
+      },
+      "created": "Un nuevo Materia Prima ha sido creado con el identificador {{ param }}",
+      "updated": "Un Materia Prima ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Materia Prima ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Materia Prima {{ id }}?"
+      },
+      "detail": {
+        "title": "Materia Prima"
+      },
+      "tipo": "Tipo",
+      "composicao": "Composicao",
+      "fio": "Fio",
+      "produto": "Produto"
+    }
+  }
+}

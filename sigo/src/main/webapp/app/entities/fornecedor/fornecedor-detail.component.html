@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fornecedor">
+            <h2><span jhiTranslate="sigoApp.fornecedor.detail.title">Fornecedor</span> {{ fornecedor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigoApp.fornecedor.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ fornecedor.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornecedor.cnpj">Cnpj</span></dt>
+                <dd>
+                    <span>{{ fornecedor.cnpj }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornecedor.email">Email</span></dt>
+                <dd>
+                    <span>{{ fornecedor.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornecedor.telefone">Telefone</span></dt>
+                <dd>
+                    <span>{{ fornecedor.telefone }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornecedor.razaoSocial">Razao Social</span></dt>
+                <dd>
+                    <span>{{ fornecedor.razaoSocial }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fornecedor', fornecedor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

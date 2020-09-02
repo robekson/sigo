@@ -1,0 +1,28 @@
+{
+  "sigoApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "createLabel": "Crear nuevo Cliente",
+        "createOrEditLabel": "Crear o editar Cliente",
+        "notFound": "Ningún Clientes encontrado"
+      },
+      "created": "Un nuevo Cliente ha sido creado con el identificador {{ param }}",
+      "updated": "Un Cliente ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Cliente ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Cliente {{ id }}?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "nome": "Nome",
+      "cnpj": "Cnpj",
+      "telefone": "Telefone",
+      "contato": "Contato",
+      "endereco": "Endereco",
+      "cep": "Cep",
+      "compra": "Compra"
+    }
+  }
+}

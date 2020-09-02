@@ -1,0 +1,25 @@
+{
+  "sigoApp": {
+    "normas": {
+      "home": {
+        "title": "Normas",
+        "createLabel": "Create a new Normas",
+        "createOrEditLabel": "Create or edit a Normas",
+        "notFound": "No Normas found"
+      },
+      "created": "A new Normas is created with identifier {{ param }}",
+      "updated": "A Normas is updated with identifier {{ param }}",
+      "deleted": "A Normas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Normas {{ id }}?"
+      },
+      "detail": {
+        "title": "Normas"
+      },
+      "codigo": "Codigo",
+      "titulo": "Titulo",
+      "date": "Date",
+      "status": "Status"
+    }
+  }
+}

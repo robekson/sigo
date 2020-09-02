@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="consultor">
+            <h2><span jhiTranslate="sigoApp.consultor.detail.title">Consultor</span> {{ consultor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigoApp.consultor.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ consultor.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.consultor.cnpj">Cnpj</span></dt>
+                <dd>
+                    <span>{{ consultor.cnpj }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.consultor.dataContratacao">Data Contratacao</span></dt>
+                <dd>
+                    <span>{{ consultor.dataContratacao }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.consultor.email">Email</span></dt>
+                <dd>
+                    <span>{{ consultor.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.consultor.telefone">Telefone</span></dt>
+                <dd>
+                    <span>{{ consultor.telefone }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/consultor', consultor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "sigoApp": {
+    "venda": {
+      "home": {
+        "title": "Vendas",
+        "createLabel": "Crear nuevo Venda",
+        "createOrEditLabel": "Crear o editar Venda",
+        "notFound": "Ningún Vendas encontrado"
+      },
+      "created": "Un nuevo Venda ha sido creado con el identificador {{ param }}",
+      "updated": "Un Venda ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Venda ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Venda {{ id }}?"
+      },
+      "detail": {
+        "title": "Venda"
+      },
+      "quantidade": "Quantidade",
+      "data": "Data",
+      "dataEntrega": "Data Entrega",
+      "valor": "Valor",
+      "produto": "Produto",
+      "funcionario": "Funcionario"
+    }
+  }
+}

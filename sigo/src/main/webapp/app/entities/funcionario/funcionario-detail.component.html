@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="funcionario">
+            <h2><span jhiTranslate="sigoApp.funcionario.detail.title">Funcionario</span> {{ funcionario.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigoApp.funcionario.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ funcionario.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.dataNascimento">Data Nascimento</span></dt>
+                <dd>
+                    <span>{{ funcionario.dataNascimento }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.dataAdmissao">Data Admissao</span></dt>
+                <dd>
+                    <span>{{ funcionario.dataAdmissao }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.cpf">Cpf</span></dt>
+                <dd>
+                    <span>{{ funcionario.cpf }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.rg">Rg</span></dt>
+                <dd>
+                    <span>{{ funcionario.rg }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.sexo">Sexo</span></dt>
+                <dd>
+                    <span>{{ funcionario.sexo }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.funcionario.loginAcesso">Login Acesso</span></dt>
+                <dd>
+                    <span>{{ funcionario.loginAcesso }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/funcionario', funcionario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

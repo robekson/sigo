@@ -1,0 +1,27 @@
+{
+  "sigoApp": {
+    "fornece": {
+      "home": {
+        "title": "Forneces",
+        "createLabel": "Crear nuevo Fornece",
+        "createOrEditLabel": "Crear o editar Fornece",
+        "notFound": "Ningún Forneces encontrado"
+      },
+      "created": "Un nuevo Fornece ha sido creado con el identificador {{ param }}",
+      "updated": "Un Fornece ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Fornece ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Fornece {{ id }}?"
+      },
+      "detail": {
+        "title": "Fornece"
+      },
+      "quantidade": "Quantidade",
+      "data": "Data",
+      "tamanho": "Tamanho",
+      "valor": "Valor",
+      "compra": "Compra",
+      "fornece": "Fornece"
+    }
+  }
+}
