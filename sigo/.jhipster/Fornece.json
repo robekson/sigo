@@ -35,7 +35,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200901171106",
+  "changelogDate": "20200904032132",
   "entityTableName": "fornece",
   "dto": "mapstruct",
   "pagination": "no",

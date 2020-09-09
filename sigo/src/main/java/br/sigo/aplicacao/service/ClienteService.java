@@ -2,9 +2,7 @@ package br.sigo.aplicacao.service;
 
 import br.sigo.aplicacao.service.dto.ClienteDTO;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,10 +21,9 @@ public interface ClienteService {
     /**
      * Get all the clientes.
      *
-     * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<ClienteDTO> findAll(Pageable pageable);
+    List<ClienteDTO> findAll();
 
 
     /**

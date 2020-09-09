@@ -40,7 +40,7 @@
       "relationshipName": "venda"
     }
   ],
-  "changelogDate": "20200901170306",
+  "changelogDate": "20200904031332",
   "entityTableName": "funcionario",
   "dto": "mapstruct",
   "pagination": "no",

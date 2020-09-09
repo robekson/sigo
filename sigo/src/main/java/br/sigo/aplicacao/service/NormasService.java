@@ -2,7 +2,9 @@ package br.sigo.aplicacao.service;
 
 import br.sigo.aplicacao.service.dto.NormasDTO;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.Optional;
 
 /**
@@ -21,9 +23,10 @@ public interface NormasService {
     /**
      * Get all the normas.
      *
+     * @param pageable the pagination information.
      * @return the list of entities.
      */
-    List<NormasDTO> findAll();
+    Page<NormasDTO> findAll(Pageable pageable);
 
 
     /**

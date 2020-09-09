@@ -35,12 +35,12 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200901171006",
+  "changelogDate": "20200904032032",
   "entityTableName": "venda",
   "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
+  "jpaMetamodelFiltering": true,
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,

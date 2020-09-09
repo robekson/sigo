@@ -3,12 +3,20 @@ package br.sigo.aplicacao.web.rest;
 import br.sigo.aplicacao.service.NormasService;
 import br.sigo.aplicacao.web.rest.errors.BadRequestAlertException;
 import br.sigo.aplicacao.service.dto.NormasDTO;
+import br.sigo.aplicacao.service.dto.NormasCriteria;
+import br.sigo.aplicacao.service.NormasQueryService;
 
 import io.github.jhipster.web.util.HeaderUtil;
+import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +42,11 @@ public class NormasResource {
 
     private final NormasService normasService;
 
-    public NormasResource(NormasService normasService) {
+    private final NormasQueryService normasQueryService;
+
+    public NormasResource(NormasService normasService, NormasQueryService normasQueryService) {
         this.normasService = normasService;
+        this.normasQueryService = normasQueryService;
     }
 
     /**
@@ -81,12 +92,28 @@ public class NormasResource {
     /**
      * {@code GET  /normas} : get all the normas.
      *
+     * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of normas in body.
      */
     @GetMapping("/normas")
-    public List<NormasDTO> getAllNormas() {
-        log.debug("REST request to get all Normas");
-        return normasService.findAll();
+    public ResponseEntity<List<NormasDTO>> getAllNormas(NormasCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get Normas by criteria: {}", criteria);
+        Page<NormasDTO> page = normasQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /normas/count} : count all the normas.
+     *
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
+     */
+    @GetMapping("/normas/count")
+    public ResponseEntity<Long> countNormas(NormasCriteria criteria) {
+        log.debug("REST request to count Normas by criteria: {}", criteria);
+        return ResponseEntity.ok().body(normasQueryService.countByCriteria(criteria));
     }
 
     /**

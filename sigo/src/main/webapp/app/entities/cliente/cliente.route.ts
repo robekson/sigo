@@ -40,7 +40,6 @@ export const clienteRoute: Routes = [
     component: ClienteComponent,
     data: {
       authorities: [Authority.USER],
-      defaultSort: 'id,asc',
       pageTitle: 'sigoApp.cliente.home.title',
     },
     canActivate: [UserRouteAccessService],

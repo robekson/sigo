@@ -40,6 +40,7 @@ export const normasRoute: Routes = [
     component: NormasComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'sigoApp.normas.home.title',
     },
     canActivate: [UserRouteAccessService],

@@ -52,7 +52,7 @@
       "ownerSide": false
     }
   ],
-  "changelogDate": "20200901170706",
+  "changelogDate": "20200904031732",
   "entityTableName": "produto",
   "dto": "mapstruct",
   "pagination": "pagination",

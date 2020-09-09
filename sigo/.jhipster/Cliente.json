@@ -35,10 +35,10 @@
       "relationshipName": "compra"
     }
   ],
-  "changelogDate": "20200901170806",
+  "changelogDate": "20200904031832",
   "entityTableName": "cliente",
   "dto": "mapstruct",
-  "pagination": "pagination",
+  "pagination": "no",
   "service": "serviceImpl",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

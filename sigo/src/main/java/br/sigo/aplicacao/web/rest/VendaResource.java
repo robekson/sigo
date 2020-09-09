@@ -3,6 +3,8 @@ package br.sigo.aplicacao.web.rest;
 import br.sigo.aplicacao.service.VendaService;
 import br.sigo.aplicacao.web.rest.errors.BadRequestAlertException;
 import br.sigo.aplicacao.service.dto.VendaDTO;
+import br.sigo.aplicacao.service.dto.VendaCriteria;
+import br.sigo.aplicacao.service.VendaQueryService;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -34,8 +36,11 @@ public class VendaResource {
 
     private final VendaService vendaService;
 
-    public VendaResource(VendaService vendaService) {
+    private final VendaQueryService vendaQueryService;
+
+    public VendaResource(VendaService vendaService, VendaQueryService vendaQueryService) {
         this.vendaService = vendaService;
+        this.vendaQueryService = vendaQueryService;
     }
 
     /**
@@ -81,12 +86,26 @@ public class VendaResource {
     /**
      * {@code GET  /vendas} : get all the vendas.
      *
+     * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of vendas in body.
      */
     @GetMapping("/vendas")
-    public List<VendaDTO> getAllVendas() {
-        log.debug("REST request to get all Vendas");
-        return vendaService.findAll();
+    public ResponseEntity<List<VendaDTO>> getAllVendas(VendaCriteria criteria) {
+        log.debug("REST request to get Vendas by criteria: {}", criteria);
+        List<VendaDTO> entityList = vendaQueryService.findByCriteria(criteria);
+        return ResponseEntity.ok().body(entityList);
+    }
+
+    /**
+     * {@code GET  /vendas/count} : count all the vendas.
+     *
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
+     */
+    @GetMapping("/vendas/count")
+    public ResponseEntity<Long> countVendas(VendaCriteria criteria) {
+        log.debug("REST request to count Vendas by criteria: {}", criteria);
+        return ResponseEntity.ok().body(vendaQueryService.countByCriteria(criteria));
     }
 
     /**

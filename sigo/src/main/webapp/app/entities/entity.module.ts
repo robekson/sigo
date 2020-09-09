@@ -13,8 +13,8 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./normas/normas.module').then(m => m.SigoNormasModule),
       },
       {
-        path: 'consultor',
-        loadChildren: () => import('./consultor/consultor.module').then(m => m.SigoConsultorModule),
+        path: 'consultoria',
+        loadChildren: () => import('./consultoria/consultoria.module').then(m => m.SigoConsultoriaModule),
       },
       {
         path: 'fornecedor',

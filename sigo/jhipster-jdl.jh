@@ -29,7 +29,7 @@ application {
 }
 
 enum CategoryStatus {
-    EM_VIGOR
+    EM_VIGOR("Em Vigor")
 }
 
 
@@ -50,12 +50,13 @@ entity Normas {
     status CategoryStatus
 }
 
-entity Consultor {
+entity Consultoria {
     nome String required,
     cnpj String,
     dataContratacao LocalDate required,
     email String,
-    telefone String
+    telefone String,
+    tipoServicoPrestado String
 }
 
 entity Fornecedor {
@@ -145,11 +146,20 @@ relationship OneToOne {
 }
 
 
+paginate Produto with pagination
+paginate Normas with pagination
+
+filter Normas
+filter Venda
+
+
+// Set service options to all except few
+service all with serviceImpl
+
 //relationship ManyToMany {
 //	FornecedorConsultor{product(title)} to Normas{normas}
 //}
 
-paginate Consultor, Cliente, Produto with pagination
 //paginate Produto with infinite-scroll
 
 // Use Data Transfert Objects (DTO)

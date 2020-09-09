@@ -19,16 +19,16 @@
     {
       "fieldName": "status",
       "fieldType": "CategoryStatus",
-      "fieldValues": "EM_VIGOR"
+      "fieldValues": "EM_VIGOR (Em Vigor)"
     }
   ],
   "relationships": [],
-  "changelogDate": "20200901170406",
+  "changelogDate": "20200904031432",
   "entityTableName": "normas",
   "dto": "mapstruct",
-  "pagination": "no",
+  "pagination": "pagination",
   "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
+  "jpaMetamodelFiltering": true,
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,

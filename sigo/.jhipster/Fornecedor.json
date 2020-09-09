@@ -31,7 +31,7 @@
       "relationshipName": "produto"
     }
   ],
-  "changelogDate": "20200901170606",
+  "changelogDate": "20200904031632",
   "entityTableName": "fornecedor",
   "dto": "mapstruct",
   "pagination": "no",

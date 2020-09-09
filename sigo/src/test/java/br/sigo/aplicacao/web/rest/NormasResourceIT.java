@@ -6,6 +6,8 @@ import br.sigo.aplicacao.repository.NormasRepository;
 import br.sigo.aplicacao.service.NormasService;
 import br.sigo.aplicacao.service.dto.NormasDTO;
 import br.sigo.aplicacao.service.mapper.NormasMapper;
+import br.sigo.aplicacao.service.dto.NormasCriteria;
+import br.sigo.aplicacao.service.NormasQueryService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,6 +45,7 @@ public class NormasResourceIT {
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate SMALLER_DATE = LocalDate.ofEpochDay(-1L);
 
     private static final CategoryStatus DEFAULT_STATUS = CategoryStatus.EM_VIGOR;
     private static final CategoryStatus UPDATED_STATUS = CategoryStatus.EM_VIGOR;
@@ -55,6 +58,9 @@ public class NormasResourceIT {
 
     @Autowired
     private NormasService normasService;
+
+    @Autowired
+    private NormasQueryService normasQueryService;
 
     @Autowired
     private EntityManager em;
@@ -233,6 +239,376 @@ public class NormasResourceIT {
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
+
+
+    @Test
+    @Transactional
+    public void getNormasByIdFiltering() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        Long id = normas.getId();
+
+        defaultNormasShouldBeFound("id.equals=" + id);
+        defaultNormasShouldNotBeFound("id.notEquals=" + id);
+
+        defaultNormasShouldBeFound("id.greaterThanOrEqual=" + id);
+        defaultNormasShouldNotBeFound("id.greaterThan=" + id);
+
+        defaultNormasShouldBeFound("id.lessThanOrEqual=" + id);
+        defaultNormasShouldNotBeFound("id.lessThan=" + id);
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllNormasByCodigoIsEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo equals to DEFAULT_CODIGO
+        defaultNormasShouldBeFound("codigo.equals=" + DEFAULT_CODIGO);
+
+        // Get all the normasList where codigo equals to UPDATED_CODIGO
+        defaultNormasShouldNotBeFound("codigo.equals=" + UPDATED_CODIGO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByCodigoIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo not equals to DEFAULT_CODIGO
+        defaultNormasShouldNotBeFound("codigo.notEquals=" + DEFAULT_CODIGO);
+
+        // Get all the normasList where codigo not equals to UPDATED_CODIGO
+        defaultNormasShouldBeFound("codigo.notEquals=" + UPDATED_CODIGO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByCodigoIsInShouldWork() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo in DEFAULT_CODIGO or UPDATED_CODIGO
+        defaultNormasShouldBeFound("codigo.in=" + DEFAULT_CODIGO + "," + UPDATED_CODIGO);
+
+        // Get all the normasList where codigo equals to UPDATED_CODIGO
+        defaultNormasShouldNotBeFound("codigo.in=" + UPDATED_CODIGO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByCodigoIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo is not null
+        defaultNormasShouldBeFound("codigo.specified=true");
+
+        // Get all the normasList where codigo is null
+        defaultNormasShouldNotBeFound("codigo.specified=false");
+    }
+                @Test
+    @Transactional
+    public void getAllNormasByCodigoContainsSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo contains DEFAULT_CODIGO
+        defaultNormasShouldBeFound("codigo.contains=" + DEFAULT_CODIGO);
+
+        // Get all the normasList where codigo contains UPDATED_CODIGO
+        defaultNormasShouldNotBeFound("codigo.contains=" + UPDATED_CODIGO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByCodigoNotContainsSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where codigo does not contain DEFAULT_CODIGO
+        defaultNormasShouldNotBeFound("codigo.doesNotContain=" + DEFAULT_CODIGO);
+
+        // Get all the normasList where codigo does not contain UPDATED_CODIGO
+        defaultNormasShouldBeFound("codigo.doesNotContain=" + UPDATED_CODIGO);
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllNormasByTituloIsEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo equals to DEFAULT_TITULO
+        defaultNormasShouldBeFound("titulo.equals=" + DEFAULT_TITULO);
+
+        // Get all the normasList where titulo equals to UPDATED_TITULO
+        defaultNormasShouldNotBeFound("titulo.equals=" + UPDATED_TITULO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByTituloIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo not equals to DEFAULT_TITULO
+        defaultNormasShouldNotBeFound("titulo.notEquals=" + DEFAULT_TITULO);
+
+        // Get all the normasList where titulo not equals to UPDATED_TITULO
+        defaultNormasShouldBeFound("titulo.notEquals=" + UPDATED_TITULO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByTituloIsInShouldWork() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo in DEFAULT_TITULO or UPDATED_TITULO
+        defaultNormasShouldBeFound("titulo.in=" + DEFAULT_TITULO + "," + UPDATED_TITULO);
+
+        // Get all the normasList where titulo equals to UPDATED_TITULO
+        defaultNormasShouldNotBeFound("titulo.in=" + UPDATED_TITULO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByTituloIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo is not null
+        defaultNormasShouldBeFound("titulo.specified=true");
+
+        // Get all the normasList where titulo is null
+        defaultNormasShouldNotBeFound("titulo.specified=false");
+    }
+                @Test
+    @Transactional
+    public void getAllNormasByTituloContainsSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo contains DEFAULT_TITULO
+        defaultNormasShouldBeFound("titulo.contains=" + DEFAULT_TITULO);
+
+        // Get all the normasList where titulo contains UPDATED_TITULO
+        defaultNormasShouldNotBeFound("titulo.contains=" + UPDATED_TITULO);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByTituloNotContainsSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where titulo does not contain DEFAULT_TITULO
+        defaultNormasShouldNotBeFound("titulo.doesNotContain=" + DEFAULT_TITULO);
+
+        // Get all the normasList where titulo does not contain UPDATED_TITULO
+        defaultNormasShouldBeFound("titulo.doesNotContain=" + UPDATED_TITULO);
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date equals to DEFAULT_DATE
+        defaultNormasShouldBeFound("date.equals=" + DEFAULT_DATE);
+
+        // Get all the normasList where date equals to UPDATED_DATE
+        defaultNormasShouldNotBeFound("date.equals=" + UPDATED_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date not equals to DEFAULT_DATE
+        defaultNormasShouldNotBeFound("date.notEquals=" + DEFAULT_DATE);
+
+        // Get all the normasList where date not equals to UPDATED_DATE
+        defaultNormasShouldBeFound("date.notEquals=" + UPDATED_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsInShouldWork() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date in DEFAULT_DATE or UPDATED_DATE
+        defaultNormasShouldBeFound("date.in=" + DEFAULT_DATE + "," + UPDATED_DATE);
+
+        // Get all the normasList where date equals to UPDATED_DATE
+        defaultNormasShouldNotBeFound("date.in=" + UPDATED_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date is not null
+        defaultNormasShouldBeFound("date.specified=true");
+
+        // Get all the normasList where date is null
+        defaultNormasShouldNotBeFound("date.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsGreaterThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date is greater than or equal to DEFAULT_DATE
+        defaultNormasShouldBeFound("date.greaterThanOrEqual=" + DEFAULT_DATE);
+
+        // Get all the normasList where date is greater than or equal to UPDATED_DATE
+        defaultNormasShouldNotBeFound("date.greaterThanOrEqual=" + UPDATED_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsLessThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date is less than or equal to DEFAULT_DATE
+        defaultNormasShouldBeFound("date.lessThanOrEqual=" + DEFAULT_DATE);
+
+        // Get all the normasList where date is less than or equal to SMALLER_DATE
+        defaultNormasShouldNotBeFound("date.lessThanOrEqual=" + SMALLER_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsLessThanSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date is less than DEFAULT_DATE
+        defaultNormasShouldNotBeFound("date.lessThan=" + DEFAULT_DATE);
+
+        // Get all the normasList where date is less than UPDATED_DATE
+        defaultNormasShouldBeFound("date.lessThan=" + UPDATED_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByDateIsGreaterThanSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where date is greater than DEFAULT_DATE
+        defaultNormasShouldNotBeFound("date.greaterThan=" + DEFAULT_DATE);
+
+        // Get all the normasList where date is greater than SMALLER_DATE
+        defaultNormasShouldBeFound("date.greaterThan=" + SMALLER_DATE);
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllNormasByStatusIsEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where status equals to DEFAULT_STATUS
+        defaultNormasShouldBeFound("status.equals=" + DEFAULT_STATUS);
+
+        // Get all the normasList where status equals to UPDATED_STATUS
+        defaultNormasShouldNotBeFound("status.equals=" + UPDATED_STATUS);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByStatusIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where status not equals to DEFAULT_STATUS
+        defaultNormasShouldNotBeFound("status.notEquals=" + DEFAULT_STATUS);
+
+        // Get all the normasList where status not equals to UPDATED_STATUS
+        defaultNormasShouldBeFound("status.notEquals=" + UPDATED_STATUS);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByStatusIsInShouldWork() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where status in DEFAULT_STATUS or UPDATED_STATUS
+        defaultNormasShouldBeFound("status.in=" + DEFAULT_STATUS + "," + UPDATED_STATUS);
+
+        // Get all the normasList where status equals to UPDATED_STATUS
+        defaultNormasShouldNotBeFound("status.in=" + UPDATED_STATUS);
+    }
+
+    @Test
+    @Transactional
+    public void getAllNormasByStatusIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        normasRepository.saveAndFlush(normas);
+
+        // Get all the normasList where status is not null
+        defaultNormasShouldBeFound("status.specified=true");
+
+        // Get all the normasList where status is null
+        defaultNormasShouldNotBeFound("status.specified=false");
+    }
+    /**
+     * Executes the search, and checks that the default entity is returned.
+     */
+    private void defaultNormasShouldBeFound(String filter) throws Exception {
+        restNormasMockMvc.perform(get("/api/normas?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(normas.getId().intValue())))
+            .andExpect(jsonPath("$.[*].codigo").value(hasItem(DEFAULT_CODIGO)))
+            .andExpect(jsonPath("$.[*].titulo").value(hasItem(DEFAULT_TITULO)))
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+
+        // Check, that the count call also returns 1
+        restNormasMockMvc.perform(get("/api/normas/count?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andExpect(content().string("1"));
+    }
+
+    /**
+     * Executes the search, and checks that the default entity is not returned.
+     */
+    private void defaultNormasShouldNotBeFound(String filter) throws Exception {
+        restNormasMockMvc.perform(get("/api/normas?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andExpect(jsonPath("$").isArray())
+            .andExpect(jsonPath("$").isEmpty());
+
+        // Check, that the count call also returns 0
+        restNormasMockMvc.perform(get("/api/normas/count?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andExpect(content().string("0"));
+    }
+
     @Test
     @Transactional
     public void getNonExistingNormas() throws Exception {
