@@ -1,0 +1,49 @@
+{
+  "name": "Fornece",
+  "fields": [
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tamanho",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valor",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "produto",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "compra"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fornecedor",
+      "otherEntityRelationshipName": "produto",
+      "relationshipName": "fornece",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200904032132",
+  "entityTableName": "fornece",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["sigo"]
+}

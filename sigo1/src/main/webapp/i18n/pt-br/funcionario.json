@@ -1,0 +1,29 @@
+{
+  "sigoApp": {
+    "funcionario": {
+      "home": {
+        "title": "Funcionarios",
+        "createLabel": "Criar novo Funcionario",
+        "createOrEditLabel": "Criar ou editar Funcionario",
+        "notFound": "Nenhum Funcionario encontrado"
+      },
+      "created": "Um novo Funcionario foi criado com o identificador {{ param }}",
+      "updated": "Um Funcionario foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Funcionario foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Funcionario {{ id }}?"
+      },
+      "detail": {
+        "title": "Funcionario"
+      },
+      "nome": "Nome",
+      "dataNascimento": "Data Nascimento",
+      "dataAdmissao": "Data Admissao",
+      "cpf": "Cpf",
+      "rg": "Rg",
+      "sexo": "Sexo",
+      "loginAcesso": "Login Acesso",
+      "venda": "Venda"
+    }
+  }
+}

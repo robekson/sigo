@@ -1,0 +1,27 @@
+{
+  "sigoApp": {
+    "compra": {
+      "home": {
+        "title": "Compras",
+        "createLabel": "Crear nuevo Compra",
+        "createOrEditLabel": "Crear o editar Compra",
+        "notFound": "Ningún Compras encontrado"
+      },
+      "created": "Un nuevo Compra ha sido creado con el identificador {{ param }}",
+      "updated": "Un Compra ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Compra ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Compra {{ id }}?"
+      },
+      "detail": {
+        "title": "Compra"
+      },
+      "quantidade": "Quantidade",
+      "data": "Data",
+      "tamanho": "Tamanho",
+      "valor": "Valor",
+      "produto": "Produto",
+      "cliente": "Cliente"
+    }
+  }
+}

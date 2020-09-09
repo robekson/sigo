@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fornece">
+            <h2><span jhiTranslate="sigoApp.fornece.detail.title">Fornece</span> {{ fornece.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigoApp.fornece.quantidade">Quantidade</span></dt>
+                <dd>
+                    <span>{{ fornece.quantidade }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornece.data">Data</span></dt>
+                <dd>
+                    <span>{{ fornece.data }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornece.tamanho">Tamanho</span></dt>
+                <dd>
+                    <span>{{ fornece.tamanho }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornece.valor">Valor</span></dt>
+                <dd>
+                    <span>{{ fornece.valor }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.fornece.fornece">Fornece</span></dt>
+                <dd>
+                    <div *ngIf="fornece.forneceId">
+                        <a [routerLink]="['/fornecedor', fornece.forneceId, 'view']">{{ fornece.forneceId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fornece', fornece.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
