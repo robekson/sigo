@@ -35,7 +35,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200904032032",
+  "changelogDate": "20200910192226",
   "entityTableName": "venda",
   "dto": "mapstruct",
   "pagination": "no",

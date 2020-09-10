@@ -27,11 +27,11 @@
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "fornece",
-      "otherEntityRelationshipName": "fornece",
-      "relationshipName": "produto"
+      "otherEntityRelationshipName": "fornecedor",
+      "relationshipName": "fornece"
     }
   ],
-  "changelogDate": "20200904031632",
+  "changelogDate": "20200910191826",
   "entityTableName": "fornecedor",
   "dto": "mapstruct",
   "pagination": "no",

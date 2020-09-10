@@ -1,0 +1,9 @@
+{
+  "sigoApp": {
+    "StatusProcesso": {
+      "null": "",
+      "ANDAMENTO": "Em Andamento",
+      "FINALIZADO": "Finalizado"
+    }
+  }
+}

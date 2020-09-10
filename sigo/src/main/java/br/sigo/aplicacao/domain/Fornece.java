@@ -39,12 +39,12 @@ public class Fornece implements Serializable {
     @Column(name = "valor", precision = 21, scale = 2)
     private BigDecimal valor;
 
-    @OneToMany(mappedBy = "cliente")
-    private Set<Produto> compras = new HashSet<>();
+    @OneToMany(mappedBy = "fornece")
+    private Set<MateriaPrima> materiaPrimas = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "produtos", allowSetters = true)
-    private Fornecedor fornece;
+    @JsonIgnoreProperties(value = "forneces", allowSetters = true)
+    private Fornecedor fornecedor;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -107,42 +107,42 @@ public class Fornece implements Serializable {
         this.valor = valor;
     }
 
-    public Set<Produto> getCompras() {
-        return compras;
+    public Set<MateriaPrima> getMateriaPrimas() {
+        return materiaPrimas;
     }
 
-    public Fornece compras(Set<Produto> produtos) {
-        this.compras = produtos;
+    public Fornece materiaPrimas(Set<MateriaPrima> materiaPrimas) {
+        this.materiaPrimas = materiaPrimas;
         return this;
     }
 
-    public Fornece addCompra(Produto produto) {
-        this.compras.add(produto);
-        produto.setCliente(this);
+    public Fornece addMateriaPrima(MateriaPrima materiaPrima) {
+        this.materiaPrimas.add(materiaPrima);
+        materiaPrima.setFornece(this);
         return this;
     }
 
-    public Fornece removeCompra(Produto produto) {
-        this.compras.remove(produto);
-        produto.setCliente(null);
+    public Fornece removeMateriaPrima(MateriaPrima materiaPrima) {
+        this.materiaPrimas.remove(materiaPrima);
+        materiaPrima.setFornece(null);
         return this;
     }
 
-    public void setCompras(Set<Produto> produtos) {
-        this.compras = produtos;
+    public void setMateriaPrimas(Set<MateriaPrima> materiaPrimas) {
+        this.materiaPrimas = materiaPrimas;
     }
 
-    public Fornecedor getFornece() {
-        return fornece;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public Fornece fornece(Fornecedor fornecedor) {
-        this.fornece = fornecedor;
+    public Fornece fornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
         return this;
     }
 
-    public void setFornece(Fornecedor fornecedor) {
-        this.fornece = fornecedor;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

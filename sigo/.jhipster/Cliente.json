@@ -35,7 +35,7 @@
       "relationshipName": "compra"
     }
   ],
-  "changelogDate": "20200904031832",
+  "changelogDate": "20200910192026",
   "entityTableName": "cliente",
   "dto": "mapstruct",
   "pagination": "no",

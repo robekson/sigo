@@ -1,6 +1,7 @@
 package br.sigo.aplicacao.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -34,6 +35,10 @@ public class MateriaPrima implements Serializable {
     @OneToOne(mappedBy = "materiaPrima")
     @JsonIgnore
     private Produto produto;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "materiaPrimas", allowSetters = true)
+    private Fornece fornece;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -94,6 +99,19 @@ public class MateriaPrima implements Serializable {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Fornece getFornece() {
+        return fornece;
+    }
+
+    public MateriaPrima fornece(Fornece fornece) {
+        this.fornece = fornece;
+        return this;
+    }
+
+    public void setFornece(Fornece fornece) {
+        this.fornece = fornece;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

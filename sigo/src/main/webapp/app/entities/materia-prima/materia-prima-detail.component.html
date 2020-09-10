@@ -20,6 +20,12 @@
                 <dd>
                     <span>{{ materiaPrima.fio }}</span>
                 </dd>
+                <dt><span jhiTranslate="sigoApp.materiaPrima.fornece">Fornece</span></dt>
+                <dd>
+                    <div *ngIf="materiaPrima.forneceId">
+                        <a [routerLink]="['/fornece', materiaPrima.forneceId, 'view']">{{ materiaPrima.forneceId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

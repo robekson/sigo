@@ -1,0 +1,207 @@
+//
+// An entity model for an online shop
+//
+
+application {
+  config {
+    baseName sigo
+    applicationType monolith
+    databaseType sql
+    prodDatabaseType postgresql
+    buildTool maven
+    packageName br.sigo.aplicacao
+    authenticationType jwt
+    clientFramework angular
+    clientPackageManager npm
+    serverPort 8080
+    nativeLanguage pt-br 
+    enableTranslation true
+    languages 	[pt-br,en,es]
+    testFrameworks [cucumber]
+    enableHibernateCache false
+    serviceDiscoveryType false
+    websocket false
+    useSass false
+    clientPackageManager npm
+
+  }
+  entities * 
+}
+
+enum CategoryStatus {
+    EM_VIGOR("Em Vigor")
+}
+
+
+entity Funcionario {
+    nome String required,
+    dataNascimento LocalDate,
+    dataAdmissao LocalDate required,
+    cpf String,
+    rg String,
+    sexo String,
+    loginAcesso String 
+}
+
+entity Normas {
+    codigo String required,
+    titulo String required,
+    date LocalDate required,
+    status CategoryStatus
+}
+
+entity Consultoria {
+    id Integer required,
+    nome String required,
+    cnpj String,
+    dataContratacao LocalDate required,
+    email String,
+    telefone String,
+    tipoServicoPrestado String
+}
+
+entity Fornecedor {
+    id Integer required,
+    nome String required,
+    cnpj String,
+    email String,
+    telefone String,
+    razaoSocial String
+}
+
+entity Produto {
+    id Integer required,
+    referencia String required,
+    nome String required,
+    cores String,
+    insumo String
+}
+
+entity Cliente {
+    id Integer required,
+    nome String required,
+    cnpj String,
+    telefone String,
+    contato String,
+    endereco String,
+    cep String
+}
+
+entity Compra {
+    id Integer required,
+    quantidade Integer required,
+    data LocalDate required,
+    tamanho String,
+    valor BigDecimal
+}
+
+entity Venda {
+    id Integer required,
+    quantidade Integer required,
+    data LocalDate required,
+    dataEntrega LocalDate,
+    valor BigDecimal
+}
+
+entity Fornece {
+    id Integer required,
+    quantidade Integer required,
+    data LocalDate required,
+    tamanho String,
+    valor BigDecimal
+}
+
+entity MateriaPrima {
+    id Integer required,
+    tipo String required,
+    composicao String,
+    fio String
+}
+
+entity Processo {
+    id Integer required,
+    idMateriaPrima Integer,
+    idProduto Integer,
+    nome String ,
+    descricao String ,
+    status StatusProcesso,
+    etapa Etapa
+}
+
+enum StatusProcesso {
+    ANDAMENTO("Em Andamento"),
+    FINALIZADO("Finalizado")
+}
+
+enum Etapa {
+    FIBRA_FILAMENTO("Industria Fibra e Filamento"),
+    TEXTIL("Industria Textil"),
+    CONFECCAO("Industria de Confecção"),
+    DISTRIBUICAO_VAREJO("Distribuição e Varejo")
+}
+
+entity TipoProcesso {
+    id Integer required,
+    nome String required,
+    descricao String required
+}
+
+
+relationship OneToMany {
+	Processo{tipoProcesso} to TipoProcesso{processo}
+}
+
+relationship ManyToMany {
+	Compra{produto} to Produto{compra}
+}
+
+relationship OneToMany {
+	Venda{produto} to Produto{venda}
+}
+
+relationship OneToMany {
+	Fornecedor{fornece} to Fornece{fornecedor}
+}
+
+relationship OneToMany {
+    Fornece{materiaPrima} to MateriaPrima{fornece}
+}
+
+relationship OneToMany {
+    Cliente{compra} to Compra{cliente}
+}
+
+
+relationship OneToMany {
+    Funcionario{venda} to Venda{funcionario}
+}
+relationship OneToOne {
+    Produto{materiaPrima} to MateriaPrima{produto}
+}
+
+relationship OneToOne {
+    Processo{processo} to Processo{processoFilho}
+}
+
+
+paginate Produto with pagination
+paginate Normas with pagination
+
+filter Normas
+filter Venda
+
+
+// Set service options to all except few
+service all with serviceImpl
+
+//relationship ManyToMany {
+//	FornecedorConsultor{product(title)} to Normas{normas}
+//}
+
+//paginate Produto with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

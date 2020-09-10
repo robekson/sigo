@@ -56,8 +56,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sigoApp.fornece.fornece" for="field_fornece">Fornece</label>
-                    <select class="form-control" id="field_fornece" name="fornece" formControlName="forneceId">
+                    <label class="form-control-label" jhiTranslate="sigoApp.fornece.fornecedor" for="field_fornecedor">Fornecedor</label>
+                    <select class="form-control" id="field_fornecedor" name="fornecedor" formControlName="fornecedorId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="fornecedorOption.id" *ngFor="let fornecedorOption of fornecedors; trackBy: trackById">{{ fornecedorOption.id }}</option>
                     </select>

@@ -38,8 +38,8 @@ public class Fornecedor implements Serializable {
     @Column(name = "razao_social")
     private String razaoSocial;
 
-    @OneToMany(mappedBy = "fornece")
-    private Set<Fornece> produtos = new HashSet<>();
+    @OneToMany(mappedBy = "fornecedor")
+    private Set<Fornece> forneces = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -115,29 +115,29 @@ public class Fornecedor implements Serializable {
         this.razaoSocial = razaoSocial;
     }
 
-    public Set<Fornece> getProdutos() {
-        return produtos;
+    public Set<Fornece> getForneces() {
+        return forneces;
     }
 
-    public Fornecedor produtos(Set<Fornece> forneces) {
-        this.produtos = forneces;
+    public Fornecedor forneces(Set<Fornece> forneces) {
+        this.forneces = forneces;
         return this;
     }
 
-    public Fornecedor addProduto(Fornece fornece) {
-        this.produtos.add(fornece);
-        fornece.setFornece(this);
+    public Fornecedor addFornece(Fornece fornece) {
+        this.forneces.add(fornece);
+        fornece.setFornecedor(this);
         return this;
     }
 
-    public Fornecedor removeProduto(Fornece fornece) {
-        this.produtos.remove(fornece);
-        fornece.setFornece(null);
+    public Fornecedor removeFornece(Fornece fornece) {
+        this.forneces.remove(fornece);
+        fornece.setFornecedor(null);
         return this;
     }
 
-    public void setProdutos(Set<Fornece> forneces) {
-        this.produtos = forneces;
+    public void setForneces(Set<Fornece> forneces) {
+        this.forneces = forneces;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -23,7 +23,7 @@ public class ForneceDTO implements Serializable {
     private BigDecimal valor;
 
 
-    private Long forneceId;
+    private Long fornecedorId;
     
     public Long getId() {
         return id;
@@ -65,12 +65,12 @@ public class ForneceDTO implements Serializable {
         this.valor = valor;
     }
 
-    public Long getForneceId() {
-        return forneceId;
+    public Long getFornecedorId() {
+        return fornecedorId;
     }
 
-    public void setForneceId(Long fornecedorId) {
-        this.forneceId = fornecedorId;
+    public void setFornecedorId(Long fornecedorId) {
+        this.fornecedorId = fornecedorId;
     }
 
     @Override
@@ -99,7 +99,7 @@ public class ForneceDTO implements Serializable {
             ", data='" + getData() + "'" +
             ", tamanho='" + getTamanho() + "'" +
             ", valor=" + getValor() +
-            ", forneceId=" + getForneceId() +
+            ", fornecedorId=" + getFornecedorId() +
             "}";
     }
 }

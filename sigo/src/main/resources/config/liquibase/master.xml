@@ -14,21 +14,26 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031332_added_entity_Funcionario.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031432_added_entity_Normas.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031632_added_entity_Fornecedor.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031732_added_entity_Produto.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031832_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031932_added_entity_Compra.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904032032_added_entity_Venda.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904032132_added_entity_Fornece.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904032232_added_entity_MateriaPrima.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200909205118_added_entity_Consultoria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191526_added_entity_Funcionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191626_added_entity_Normas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191726_added_entity_Consultoria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191826_added_entity_Fornecedor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191926_added_entity_Produto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192026_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192126_added_entity_Compra.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192226_added_entity_Venda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192326_added_entity_Fornece.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192426_added_entity_MateriaPrima.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192526_added_entity_Processo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192626_added_entity_TipoProcesso.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20200904031732_added_entity_constraints_Produto.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904031932_added_entity_constraints_Compra.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904032032_added_entity_constraints_Venda.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200904032132_added_entity_constraints_Fornece.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910191926_added_entity_constraints_Produto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192126_added_entity_constraints_Compra.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192226_added_entity_constraints_Venda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192326_added_entity_constraints_Fornece.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192426_added_entity_constraints_MateriaPrima.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192526_added_entity_constraints_Processo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200910192626_added_entity_constraints_TipoProcesso.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

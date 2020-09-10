@@ -23,19 +23,19 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "produto",
-      "otherEntityRelationshipName": "cliente",
-      "relationshipName": "compra"
+      "otherEntityName": "materiaPrima",
+      "otherEntityRelationshipName": "fornece",
+      "relationshipName": "materiaPrima"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "fornecedor",
-      "otherEntityRelationshipName": "produto",
-      "relationshipName": "fornece",
+      "otherEntityRelationshipName": "fornece",
+      "relationshipName": "fornecedor",
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200904032132",
+  "changelogDate": "20200910192326",
   "entityTableName": "fornece",
   "dto": "mapstruct",
   "pagination": "no",

@@ -27,7 +27,7 @@
                     <th scope="col" ><span jhiTranslate="sigoApp.fornece.data">Data</span></th>
                     <th scope="col" ><span jhiTranslate="sigoApp.fornece.tamanho">Tamanho</span></th>
                     <th scope="col" ><span jhiTranslate="sigoApp.fornece.valor">Valor</span></th>
-                    <th scope="col" ><span jhiTranslate="sigoApp.fornece.fornece">Fornece</span></th>
+                    <th scope="col" ><span jhiTranslate="sigoApp.fornece.fornecedor">Fornecedor</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,8 +39,8 @@
                     <td>{{ fornece.tamanho }}</td>
                     <td>{{ fornece.valor }}</td>
                     <td>
-                        <div *ngIf="fornece.forneceId">
-                            <a [routerLink]="['/fornecedor', fornece.forneceId , 'view']" >{{ fornece.forneceId }}</a>
+                        <div *ngIf="fornece.fornecedorId">
+                            <a [routerLink]="['/fornecedor', fornece.fornecedorId , 'view']" >{{ fornece.fornecedorId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

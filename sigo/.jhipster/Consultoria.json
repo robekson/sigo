@@ -29,7 +29,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200909205118",
+  "changelogDate": "20200910191726",
   "entityTableName": "consultoria",
   "dto": "mapstruct",
   "pagination": "no",

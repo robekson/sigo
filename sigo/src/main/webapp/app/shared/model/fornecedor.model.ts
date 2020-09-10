@@ -7,7 +7,7 @@ export interface IFornecedor {
   email?: string;
   telefone?: string;
   razaoSocial?: string;
-  produtos?: IFornece[];
+  forneces?: IFornece[];
 }
 
 export class Fornecedor implements IFornecedor {
@@ -18,6 +18,6 @@ export class Fornecedor implements IFornecedor {
     public email?: string,
     public telefone?: string,
     public razaoSocial?: string,
-    public produtos?: IFornece[]
+    public forneces?: IFornece[]
   ) {}
 }

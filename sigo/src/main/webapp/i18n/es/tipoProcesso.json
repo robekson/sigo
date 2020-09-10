@@ -1,0 +1,24 @@
+{
+  "sigoApp": {
+    "tipoProcesso": {
+      "home": {
+        "title": "Tipo Processos",
+        "createLabel": "Crear nuevo Tipo Processo",
+        "createOrEditLabel": "Crear o editar Tipo Processo",
+        "notFound": "Ningún Tipo Processos encontrado"
+      },
+      "created": "Un nuevo Tipo Processo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Processo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Processo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Processo {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Processo"
+      },
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "processo": "Processo"
+    }
+  }
+}

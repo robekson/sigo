@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IMateriaPrima, MateriaPrima } from 'app/shared/model/materia-prima.model';
 import { MateriaPrimaService } from './materia-prima.service';
+import { IFornece } from 'app/shared/model/fornece.model';
+import { ForneceService } from 'app/entities/fornece/fornece.service';
 
 @Component({
   selector: 'jhi-materia-prima-update',
@@ -14,19 +16,28 @@ import { MateriaPrimaService } from './materia-prima.service';
 })
 export class MateriaPrimaUpdateComponent implements OnInit {
   isSaving = false;
+  forneces: IFornece[] = [];
 
   editForm = this.fb.group({
     id: [],
     tipo: [null, [Validators.required]],
     composicao: [],
     fio: [],
+    forneceId: [],
   });
 
-  constructor(protected materiaPrimaService: MateriaPrimaService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected materiaPrimaService: MateriaPrimaService,
+    protected forneceService: ForneceService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ materiaPrima }) => {
       this.updateForm(materiaPrima);
+
+      this.forneceService.query().subscribe((res: HttpResponse<IFornece[]>) => (this.forneces = res.body || []));
     });
   }
 
@@ -36,6 +47,7 @@ export class MateriaPrimaUpdateComponent implements OnInit {
       tipo: materiaPrima.tipo,
       composicao: materiaPrima.composicao,
       fio: materiaPrima.fio,
+      forneceId: materiaPrima.forneceId,
     });
   }
 
@@ -60,6 +72,7 @@ export class MateriaPrimaUpdateComponent implements OnInit {
       tipo: this.editForm.get(['tipo'])!.value,
       composicao: this.editForm.get(['composicao'])!.value,
       fio: this.editForm.get(['fio'])!.value,
+      forneceId: this.editForm.get(['forneceId'])!.value,
     };
   }
 
@@ -77,5 +90,9 @@ export class MateriaPrimaUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IFornece): any {
+    return item.id;
   }
 }

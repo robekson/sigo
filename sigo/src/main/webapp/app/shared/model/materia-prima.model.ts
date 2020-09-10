@@ -4,8 +4,16 @@ export interface IMateriaPrima {
   composicao?: string;
   fio?: string;
   produtoId?: number;
+  forneceId?: number;
 }
 
 export class MateriaPrima implements IMateriaPrima {
-  constructor(public id?: number, public tipo?: string, public composicao?: string, public fio?: string, public produtoId?: number) {}
+  constructor(
+    public id?: number,
+    public tipo?: string,
+    public composicao?: string,
+    public fio?: string,
+    public produtoId?: number,
+    public forneceId?: number
+  ) {}
 }

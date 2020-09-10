@@ -1,0 +1,30 @@
+{
+  "sigoApp": {
+    "processo": {
+      "home": {
+        "title": "Processos",
+        "createLabel": "Create a new Processo",
+        "createOrEditLabel": "Create or edit a Processo",
+        "notFound": "No Processos found"
+      },
+      "created": "A new Processo is created with identifier {{ param }}",
+      "updated": "A Processo is updated with identifier {{ param }}",
+      "deleted": "A Processo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Processo {{ id }}?"
+      },
+      "detail": {
+        "title": "Processo"
+      },
+      "idMateriaPrima": "Id Materia Prima",
+      "idProduto": "Id Produto",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "status": "Status",
+      "etapa": "Etapa",
+      "processo": "Processo",
+      "tipoProcesso": "Tipo Processo",
+      "processoFilho": "Processo Filho"
+    }
+  }
+}

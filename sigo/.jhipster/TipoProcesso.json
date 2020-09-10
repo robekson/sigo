@@ -1,0 +1,35 @@
+{
+  "name": "TipoProcesso",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "tipoProcesso",
+      "relationshipName": "processo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200910192626",
+  "entityTableName": "tipo_processo",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["sigo"]
+}

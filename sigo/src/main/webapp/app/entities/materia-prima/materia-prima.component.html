@@ -26,6 +26,7 @@
                     <th scope="col" ><span jhiTranslate="sigoApp.materiaPrima.tipo">Tipo</span></th>
                     <th scope="col" ><span jhiTranslate="sigoApp.materiaPrima.composicao">Composicao</span></th>
                     <th scope="col" ><span jhiTranslate="sigoApp.materiaPrima.fio">Fio</span></th>
+                    <th scope="col" ><span jhiTranslate="sigoApp.materiaPrima.fornece">Fornece</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,6 +36,11 @@
                     <td>{{ materiaPrima.tipo }}</td>
                     <td>{{ materiaPrima.composicao }}</td>
                     <td>{{ materiaPrima.fio }}</td>
+                    <td>
+                        <div *ngIf="materiaPrima.forneceId">
+                            <a [routerLink]="['/fornece', materiaPrima.forneceId , 'view']" >{{ materiaPrima.forneceId }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

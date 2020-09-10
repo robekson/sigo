@@ -34,6 +34,14 @@
                     <input type="text" class="form-control" name="fio" id="field_fio"
                            formControlName="fio"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.materiaPrima.fornece" for="field_fornece">Fornece</label>
+                    <select class="form-control" id="field_fornece" name="fornece" formControlName="forneceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="forneceOption.id" *ngFor="let forneceOption of forneces; trackBy: trackById">{{ forneceOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

@@ -24,8 +24,6 @@ public class ProdutoDTO implements Serializable {
     private Long materiaPrimaId;
 
     private Long vendaId;
-
-    private Long clienteId;
     
     public Long getId() {
         return id;
@@ -83,14 +81,6 @@ public class ProdutoDTO implements Serializable {
         this.vendaId = vendaId;
     }
 
-    public Long getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Long forneceId) {
-        this.clienteId = forneceId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -119,7 +109,6 @@ public class ProdutoDTO implements Serializable {
             ", insumo='" + getInsumo() + "'" +
             ", materiaPrimaId=" + getMateriaPrimaId() +
             ", vendaId=" + getVendaId() +
-            ", clienteId=" + getClienteId() +
             "}";
     }
 }

@@ -37,13 +37,6 @@
       "otherEntityField": "id"
     },
     {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "fornece",
-      "otherEntityRelationshipName": "compra",
-      "relationshipName": "cliente",
-      "otherEntityField": "id"
-    },
-    {
       "relationshipType": "many-to-many",
       "otherEntityName": "compra",
       "otherEntityRelationshipName": "produto",
@@ -52,7 +45,7 @@
       "ownerSide": false
     }
   ],
-  "changelogDate": "20200904031732",
+  "changelogDate": "20200910191926",
   "entityTableName": "produto",
   "dto": "mapstruct",
   "pagination": "pagination",

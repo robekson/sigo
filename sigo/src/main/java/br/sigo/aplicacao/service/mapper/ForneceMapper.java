@@ -12,12 +12,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {FornecedorMapper.class})
 public interface ForneceMapper extends EntityMapper<ForneceDTO, Fornece> {
 
-    @Mapping(source = "fornece.id", target = "forneceId")
+    @Mapping(source = "fornecedor.id", target = "fornecedorId")
     ForneceDTO toDto(Fornece fornece);
 
-    @Mapping(target = "compras", ignore = true)
-    @Mapping(target = "removeCompra", ignore = true)
-    @Mapping(source = "forneceId", target = "fornece")
+    @Mapping(target = "materiaPrimas", ignore = true)
+    @Mapping(target = "removeMateriaPrima", ignore = true)
+    @Mapping(source = "fornecedorId", target = "fornecedor")
     Fornece toEntity(ForneceDTO forneceDTO);
 
     default Fornece fromId(Long id) {

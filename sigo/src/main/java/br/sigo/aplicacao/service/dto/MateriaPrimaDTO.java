@@ -17,6 +17,8 @@ public class MateriaPrimaDTO implements Serializable {
 
     private String fio;
 
+
+    private Long forneceId;
     
     public Long getId() {
         return id;
@@ -50,6 +52,14 @@ public class MateriaPrimaDTO implements Serializable {
         this.fio = fio;
     }
 
+    public Long getForneceId() {
+        return forneceId;
+    }
+
+    public void setForneceId(Long forneceId) {
+        this.forneceId = forneceId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,6 +85,7 @@ public class MateriaPrimaDTO implements Serializable {
             ", tipo='" + getTipo() + "'" +
             ", composicao='" + getComposicao() + "'" +
             ", fio='" + getFio() + "'" +
+            ", forneceId=" + getForneceId() +
             "}";
     }
 }

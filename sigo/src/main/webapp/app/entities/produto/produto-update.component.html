@@ -62,14 +62,6 @@
                         <option [ngValue]="vendaOption.id" *ngFor="let vendaOption of vendas; trackBy: trackById">{{ vendaOption.id }}</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sigoApp.produto.cliente" for="field_cliente">Cliente</label>
-                    <select class="form-control" id="field_cliente" name="cliente" formControlName="clienteId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="forneceOption.id" *ngFor="let forneceOption of forneces; trackBy: trackById">{{ forneceOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

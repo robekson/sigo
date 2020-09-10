@@ -12,10 +12,8 @@ import { IMateriaPrima } from 'app/shared/model/materia-prima.model';
 import { MateriaPrimaService } from 'app/entities/materia-prima/materia-prima.service';
 import { IVenda } from 'app/shared/model/venda.model';
 import { VendaService } from 'app/entities/venda/venda.service';
-import { IFornece } from 'app/shared/model/fornece.model';
-import { ForneceService } from 'app/entities/fornece/fornece.service';
 
-type SelectableEntity = IMateriaPrima | IVenda | IFornece;
+type SelectableEntity = IMateriaPrima | IVenda;
 
 @Component({
   selector: 'jhi-produto-update',
@@ -25,7 +23,6 @@ export class ProdutoUpdateComponent implements OnInit {
   isSaving = false;
   materiaprimas: IMateriaPrima[] = [];
   vendas: IVenda[] = [];
-  forneces: IFornece[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -35,14 +32,12 @@ export class ProdutoUpdateComponent implements OnInit {
     insumo: [],
     materiaPrimaId: [],
     vendaId: [],
-    clienteId: [],
   });
 
   constructor(
     protected produtoService: ProdutoService,
     protected materiaPrimaService: MateriaPrimaService,
     protected vendaService: VendaService,
-    protected forneceService: ForneceService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -74,8 +69,6 @@ export class ProdutoUpdateComponent implements OnInit {
         });
 
       this.vendaService.query().subscribe((res: HttpResponse<IVenda[]>) => (this.vendas = res.body || []));
-
-      this.forneceService.query().subscribe((res: HttpResponse<IFornece[]>) => (this.forneces = res.body || []));
     });
   }
 
@@ -88,7 +81,6 @@ export class ProdutoUpdateComponent implements OnInit {
       insumo: produto.insumo,
       materiaPrimaId: produto.materiaPrimaId,
       vendaId: produto.vendaId,
-      clienteId: produto.clienteId,
     });
   }
 
@@ -116,7 +108,6 @@ export class ProdutoUpdateComponent implements OnInit {
       insumo: this.editForm.get(['insumo'])!.value,
       materiaPrimaId: this.editForm.get(['materiaPrimaId'])!.value,
       vendaId: this.editForm.get(['vendaId'])!.value,
-      clienteId: this.editForm.get(['clienteId'])!.value,
     };
   }
 

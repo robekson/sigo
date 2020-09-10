@@ -36,12 +36,6 @@
                         <a [routerLink]="['/venda', produto.vendaId, 'view']">{{ produto.vendaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="sigoApp.produto.cliente">Cliente</span></dt>
-                <dd>
-                    <div *ngIf="produto.clienteId">
-                        <a [routerLink]="['/fornece', produto.clienteId, 'view']">{{ produto.clienteId }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

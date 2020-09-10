@@ -37,7 +37,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200904031932",
+  "changelogDate": "20200910192126",
   "entityTableName": "compra",
   "dto": "mapstruct",
   "pagination": "no",

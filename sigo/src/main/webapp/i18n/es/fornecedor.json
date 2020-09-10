@@ -21,7 +21,7 @@
       "email": "Email",
       "telefone": "Telefone",
       "razaoSocial": "Razao Social",
-      "produto": "Produto"
+      "fornece": "Fornece"
     }
   }
 }

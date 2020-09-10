@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigoApp.tipoProcesso.home.title">Tipo Processos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tipo-processo" [routerLink]="['/tipo-processo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigoApp.tipoProcesso.home.createLabel">
+            Create a new Tipo Processo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tipoProcessos?.length === 0">
+        <span jhiTranslate="sigoApp.tipoProcesso.home.notFound">No tipoProcessos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tipoProcessos && tipoProcessos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="sigoApp.tipoProcesso.nome">Nome</span></th>
+                    <th scope="col" ><span jhiTranslate="sigoApp.tipoProcesso.descricao">Descricao</span></th>
+                    <th scope="col" ><span jhiTranslate="sigoApp.tipoProcesso.processo">Processo</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tipoProcesso of tipoProcessos ;trackBy: trackId">
+                    <td><a [routerLink]="['/tipo-processo', tipoProcesso.id, 'view']">{{ tipoProcesso.id }}</a></td>
+                    <td>{{ tipoProcesso.nome }}</td>
+                    <td>{{ tipoProcesso.descricao }}</td>
+                    <td>
+                        <div *ngIf="tipoProcesso.processoId">
+                            <a [routerLink]="['/processo', tipoProcesso.processoId , 'view']" >{{ tipoProcesso.processoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tipo-processo', tipoProcesso.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tipo-processo', tipoProcesso.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tipoProcesso)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

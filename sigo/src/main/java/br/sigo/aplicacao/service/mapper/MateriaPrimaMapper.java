@@ -9,11 +9,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link MateriaPrima} and its DTO {@link MateriaPrimaDTO}.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {ForneceMapper.class})
 public interface MateriaPrimaMapper extends EntityMapper<MateriaPrimaDTO, MateriaPrima> {
 
+    @Mapping(source = "fornece.id", target = "forneceId")
+    MateriaPrimaDTO toDto(MateriaPrima materiaPrima);
 
     @Mapping(target = "produto", ignore = true)
+    @Mapping(source = "forneceId", target = "fornece")
     MateriaPrima toEntity(MateriaPrimaDTO materiaPrimaDTO);
 
     default MateriaPrima fromId(Long id) {

@@ -19,7 +19,8 @@
       "tipo": "Tipo",
       "composicao": "Composicao",
       "fio": "Fio",
-      "produto": "Produto"
+      "produto": "Produto",
+      "fornece": "Fornece"
     }
   }
 }

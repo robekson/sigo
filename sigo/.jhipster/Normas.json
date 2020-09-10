@@ -23,7 +23,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200904031432",
+  "changelogDate": "20200910191626",
   "entityTableName": "normas",
   "dto": "mapstruct",
   "pagination": "pagination",

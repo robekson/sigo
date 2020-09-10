@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { IProduto } from 'app/shared/model/produto.model';
+import { IMateriaPrima } from 'app/shared/model/materia-prima.model';
 
 export interface IFornece {
   id?: number;
@@ -7,8 +7,8 @@ export interface IFornece {
   data?: Moment;
   tamanho?: string;
   valor?: number;
-  compras?: IProduto[];
-  forneceId?: number;
+  materiaPrimas?: IMateriaPrima[];
+  fornecedorId?: number;
 }
 
 export class Fornece implements IFornece {
@@ -18,7 +18,7 @@ export class Fornece implements IFornece {
     public data?: Moment,
     public tamanho?: string,
     public valor?: number,
-    public compras?: IProduto[],
-    public forneceId?: number
+    public materiaPrimas?: IMateriaPrima[],
+    public fornecedorId?: number
   ) {}
 }

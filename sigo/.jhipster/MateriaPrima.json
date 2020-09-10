@@ -22,9 +22,16 @@
       "otherEntityRelationshipName": "materiaPrima",
       "relationshipName": "produto",
       "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fornece",
+      "otherEntityRelationshipName": "materiaPrima",
+      "relationshipName": "fornece",
+      "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200904032232",
+  "changelogDate": "20200910192426",
   "entityTableName": "materia_prima",
   "dto": "mapstruct",
   "pagination": "no",

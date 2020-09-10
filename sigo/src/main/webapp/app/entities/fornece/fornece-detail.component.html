@@ -24,10 +24,10 @@
                 <dd>
                     <span>{{ fornece.valor }}</span>
                 </dd>
-                <dt><span jhiTranslate="sigoApp.fornece.fornece">Fornece</span></dt>
+                <dt><span jhiTranslate="sigoApp.fornece.fornecedor">Fornecedor</span></dt>
                 <dd>
-                    <div *ngIf="fornece.forneceId">
-                        <a [routerLink]="['/fornecedor', fornece.forneceId, 'view']">{{ fornece.forneceId }}</a>
+                    <div *ngIf="fornece.fornecedorId">
+                        <a [routerLink]="['/fornecedor', fornece.fornecedorId, 'view']">{{ fornece.fornecedorId }}</a>
                     </div>
                 </dd>
             </dl>

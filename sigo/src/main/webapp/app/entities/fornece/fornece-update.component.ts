@@ -25,7 +25,7 @@ export class ForneceUpdateComponent implements OnInit {
     data: [null, [Validators.required]],
     tamanho: [],
     valor: [],
-    forneceId: [],
+    fornecedorId: [],
   });
 
   constructor(
@@ -50,7 +50,7 @@ export class ForneceUpdateComponent implements OnInit {
       data: fornece.data,
       tamanho: fornece.tamanho,
       valor: fornece.valor,
-      forneceId: fornece.forneceId,
+      fornecedorId: fornece.fornecedorId,
     });
   }
 
@@ -76,7 +76,7 @@ export class ForneceUpdateComponent implements OnInit {
       data: this.editForm.get(['data'])!.value,
       tamanho: this.editForm.get(['tamanho'])!.value,
       valor: this.editForm.get(['valor'])!.value,
-      forneceId: this.editForm.get(['forneceId'])!.value,
+      fornecedorId: this.editForm.get(['fornecedorId'])!.value,
     };
   }
 

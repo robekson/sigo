@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-processo-heading" jhiTranslate="sigoApp.processo.home.createOrEditLabel">Create or edit a Processo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.idMateriaPrima" for="field_idMateriaPrima">Id Materia Prima</label>
+                    <input type="number" class="form-control" name="idMateriaPrima" id="field_idMateriaPrima"
+                           formControlName="idMateriaPrima"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.idProduto" for="field_idProduto">Id Produto</label>
+                    <input type="number" class="form-control" name="idProduto" id="field_idProduto"
+                           formControlName="idProduto"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.descricao" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                           formControlName="descricao"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="ANDAMENTO">{{ 'sigoApp.StatusProcesso.ANDAMENTO' | translate }}</option>
+                        <option value="FINALIZADO">{{ 'sigoApp.StatusProcesso.FINALIZADO' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.etapa" for="field_etapa">Etapa</label>
+                    <select class="form-control" name="etapa" formControlName="etapa" id="field_etapa">
+                        <option value="FIBRA_FILAMENTO">{{ 'sigoApp.Etapa.FIBRA_FILAMENTO' | translate }}</option>
+                        <option value="TEXTIL">{{ 'sigoApp.Etapa.TEXTIL' | translate }}</option>
+                        <option value="CONFECCAO">{{ 'sigoApp.Etapa.CONFECCAO' | translate }}</option>
+                        <option value="DISTRIBUICAO_VAREJO">{{ 'sigoApp.Etapa.DISTRIBUICAO_VAREJO' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigoApp.processo.processo" for="field_processo">Processo</label>
+                    <select class="form-control" id="field_processo" name="processo" formControlName="processoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="processoOption.id" *ngFor="let processoOption of processos; trackBy: trackById">{{ processoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

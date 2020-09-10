@@ -8,7 +8,6 @@ export interface IProduto {
   insumo?: string;
   materiaPrimaId?: number;
   vendaId?: number;
-  clienteId?: number;
   compras?: ICompra[];
 }
 
@@ -21,7 +20,6 @@ export class Produto implements IProduto {
     public insumo?: string,
     public materiaPrimaId?: number,
     public vendaId?: number,
-    public clienteId?: number,
     public compras?: ICompra[]
   ) {}
 }

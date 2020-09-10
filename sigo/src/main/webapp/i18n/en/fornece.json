@@ -20,8 +20,8 @@
       "data": "Data",
       "tamanho": "Tamanho",
       "valor": "Valor",
-      "compra": "Compra",
-      "fornece": "Fornece"
+      "materiaPrima": "Materia Prima",
+      "fornecedor": "Fornecedor"
     }
   }
 }

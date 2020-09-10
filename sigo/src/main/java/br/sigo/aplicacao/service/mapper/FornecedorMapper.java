@@ -13,8 +13,8 @@ import org.mapstruct.*;
 public interface FornecedorMapper extends EntityMapper<FornecedorDTO, Fornecedor> {
 
 
-    @Mapping(target = "produtos", ignore = true)
-    @Mapping(target = "removeProduto", ignore = true)
+    @Mapping(target = "forneces", ignore = true)
+    @Mapping(target = "removeFornece", ignore = true)
     Fornecedor toEntity(FornecedorDTO fornecedorDTO);
 
     default Fornecedor fromId(Long id) {

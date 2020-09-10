@@ -29,7 +29,6 @@
                     <th scope="col"  jhiSortBy="insumo"><span jhiTranslate="sigoApp.produto.insumo">Insumo</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="materiaPrimaId"><span jhiTranslate="sigoApp.produto.materiaPrima">Materia Prima</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="vendaId"><span jhiTranslate="sigoApp.produto.venda">Venda</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="clienteId"><span jhiTranslate="sigoApp.produto.cliente">Cliente</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -48,11 +47,6 @@
                     <td>
                         <div *ngIf="produto.vendaId">
                             <a [routerLink]="['/venda', produto.vendaId , 'view']" >{{ produto.vendaId }}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="produto.clienteId">
-                            <a [routerLink]="['/fornece', produto.clienteId , 'view']" >{{ produto.clienteId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

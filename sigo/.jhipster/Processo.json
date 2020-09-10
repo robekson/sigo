@@ -1,0 +1,65 @@
+{
+  "name": "Processo",
+  "fields": [
+    {
+      "fieldName": "idMateriaPrima",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idProduto",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusProcesso",
+      "fieldValues": "ANDAMENTO (Em Andamento),FINALIZADO (Finalizado)"
+    },
+    {
+      "fieldName": "etapa",
+      "fieldType": "Etapa",
+      "fieldValues": "FIBRA_FILAMENTO (Industria Fibra e Filamento),TEXTIL (Industria Textil),CONFECCAO (Industria de Confecção),DISTRIBUICAO_VAREJO (Distribuição e Varejo)"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "processoFilho",
+      "relationshipName": "processo",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tipoProcesso",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "tipoProcesso"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "processoFilho",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200910192526",
+  "entityTableName": "processo",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["sigo"]
+}

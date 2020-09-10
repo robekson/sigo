@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoProcesso">
+            <h2><span jhiTranslate="sigoApp.tipoProcesso.detail.title">Tipo Processo</span> {{ tipoProcesso.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigoApp.tipoProcesso.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ tipoProcesso.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.tipoProcesso.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{ tipoProcesso.descricao }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigoApp.tipoProcesso.processo">Processo</span></dt>
+                <dd>
+                    <div *ngIf="tipoProcesso.processoId">
+                        <a [routerLink]="['/processo', tipoProcesso.processoId, 'view']">{{ tipoProcesso.processoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-processo', tipoProcesso.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -46,10 +46,6 @@ public class Produto implements Serializable {
     @JsonIgnoreProperties(value = "produtos", allowSetters = true)
     private Venda venda;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "compras", allowSetters = true)
-    private Fornece cliente;
-
     @ManyToMany(mappedBy = "produtos")
     @JsonIgnore
     private Set<Compra> compras = new HashSet<>();
@@ -139,19 +135,6 @@ public class Produto implements Serializable {
 
     public void setVenda(Venda venda) {
         this.venda = venda;
-    }
-
-    public Fornece getCliente() {
-        return cliente;
-    }
-
-    public Produto cliente(Fornece fornece) {
-        this.cliente = fornece;
-        return this;
-    }
-
-    public void setCliente(Fornece fornece) {
-        this.cliente = fornece;
     }
 
     public Set<Compra> getCompras() {
