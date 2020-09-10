@@ -28,16 +28,29 @@
     "clientPackageManager": "npm",
     "useSass": true,
     "jhipsterVersion": "6.9.1",
-    "creationTimestamp": 1599189120683,
+    "creationTimestamp": 1599765240120,
     "skipServer": false,
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "jwtSecretKey": "NThiOTg2YjFlZTIzMzAxN2ZkYjljYzAwNWI0MjdmMTMzNjI5NmQ2ZmM5MjZiZTI2NGYwZjVjMDM4YTEwZTQ0OGI4ZjQ4MzlhMTRjMmViN2RhZTRlODJkYzQ3OWEyNTBjOTUyYTZhNzkzNGEyYzE5OTRjYThmODllZjhhMmMxYWY=",
+    "jwtSecretKey": "YzUyMTVmY2Q5OWFiMWM1OTM3YTQ2MjBmMzUwZGQ3ZDUxZDY5NDFiNGE4NWJhMzMyZDJiY2E0ZTQ1N2U3OGYyMmY1YjI4MDFmN2U2MjRlMmYwMWRlYWY1ODE1NGExNmMwMTE0Y2ZhMWQ2YzQ0OWIyMDBhNTQ1NjE0ZWM4ZDAzM2Y=",
     "embeddableLaunchScript": false,
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "blueprints": []
   },
-  "entities": ["Funcionario", "Normas", "Consultoria", "Fornecedor", "Produto", "Cliente", "Compra", "Venda", "Fornece", "MateriaPrima"]
+  "entities": [
+    "Funcionario",
+    "Normas",
+    "Consultoria",
+    "Fornecedor",
+    "Produto",
+    "Cliente",
+    "Compra",
+    "Venda",
+    "Fornece",
+    "MateriaPrima",
+    "Processo",
+    "TipoProcesso"
+  ]
 }
