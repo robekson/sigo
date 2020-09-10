@@ -13,10 +13,6 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./normas/normas.module').then(m => m.SigoNormasModule),
       },
       {
-        path: 'consultoria',
-        loadChildren: () => import('./consultoria/consultoria.module').then(m => m.SigoConsultoriaModule),
-      },
-      {
         path: 'fornecedor',
         loadChildren: () => import('./fornecedor/fornecedor.module').then(m => m.SigoFornecedorModule),
       },
@@ -43,6 +39,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'materia-prima',
         loadChildren: () => import('./materia-prima/materia-prima.module').then(m => m.SigoMateriaPrimaModule),
+      },
+      {
+        path: 'consultoria',
+        loadChildren: () => import('./consultoria/consultoria.module').then(m => m.SigoConsultoriaModule),
       },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),

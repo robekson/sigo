@@ -50,7 +50,7 @@ spring:
   liquibase:
     contexts: test
   mail:
-    host: localhost
+    host: smtp.gmail.com
   main:
     allow-bean-definition-overriding: true
   messages:
@@ -91,7 +91,7 @@ jhipster:
       port: 5000
       queue-size: 512
   mail:
-    from: test@localhost
+    from: robeksonjhipster@gmail.com
     base-url: http://127.0.0.1:8080
   security:
     authentication:

@@ -9,7 +9,6 @@
         "main": "Entities",
         "funcionario": "Funcionario",
         "normas": "Normas",
-        "consultoria": "Consultoria",
         "fornecedor": "Fornecedor",
         "produto": "Produto",
         "cliente": "Cliente",
@@ -17,6 +16,7 @@
         "venda": "Venda",
         "fornece": "Fornece",
         "materiaPrima": "Materia Prima",
+        "consultoria": "Consultoria",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

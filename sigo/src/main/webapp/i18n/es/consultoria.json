@@ -1,0 +1,27 @@
+{
+  "sigoApp": {
+    "consultoria": {
+      "home": {
+        "title": "Consultorias",
+        "createLabel": "Crear nuevo Consultoria",
+        "createOrEditLabel": "Crear o editar Consultoria",
+        "notFound": "Ningún Consultorias encontrado"
+      },
+      "created": "Un nuevo Consultoria ha sido creado con el identificador {{ param }}",
+      "updated": "Un Consultoria ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Consultoria ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Consultoria {{ id }}?"
+      },
+      "detail": {
+        "title": "Consultoria"
+      },
+      "nome": "Nome",
+      "cnpj": "Cnpj",
+      "dataContratacao": "Data Contratacao",
+      "email": "Email",
+      "telefone": "Telefone",
+      "tipoServicoPrestado": "Tipo Servico Prestado"
+    }
+  }
+}
