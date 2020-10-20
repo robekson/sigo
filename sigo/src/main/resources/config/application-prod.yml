@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/sigo
-    username: sigo
-    password:
+    url: jdbc:postgresql://aapqf647r91ord.cikrm20cysux.us-east-2.rds.amazonaws.com:5432/sigo
+    username: root
+    password: password
     hikari:
       poolName: Hikari
       auto-commit: false

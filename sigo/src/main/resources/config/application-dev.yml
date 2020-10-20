@@ -21,7 +21,7 @@ logging:
 
 spring:
   profiles:
-    active: dev
+    active: prod
     include:
       - swagger
       # Uncomment to activate TLS for the dev profile
@@ -37,9 +37,12 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/sigo;DB_CLOSE_DELAY=-1
-    username: sigo
-    password:
+    #url: jdbc:h2:file:./target/h2db/db/sigo;DB_CLOSE_DELAY=-1
+    #username: sigo
+    #password:
+    url: jdbc:postgresql://aapqf647r91ord.cikrm20cysux.us-east-2.rds.amazonaws.com:5432/sigo
+    username: root
+    password: password    
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -55,7 +58,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: robeksonjhipster@gmail.com
-    password: 
+    password: jhipster 
     protocol: smtp
     tls: true
     properties.mail.smtp:
